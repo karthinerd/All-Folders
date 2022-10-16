@@ -1,0 +1,76 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 20-09-2022 )
+						
+
+        Index .js						
+										   
+import React from 'react';
+import ReactDOM from 'react-dom/client';
+import './index.css';
+import App from './App';
+import reportWebVitals from './reportWebVitals';
+
+const root = ReactDOM.createRoot(document.getElementById('root'));
+root.render(
+ /*  <React.StrictMode>
+    
+  </React.StrictMode> */
+
+<App />
+
+
+
+);
+
+// If you want to start measuring performance in your app, pass a function
+// to log results (for example: reportWebVitals(console.log))
+// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
+reportWebVitals();
+
+-----------------------------------------------------------------------------------------------------------------------------
+
+ App.js
+
+
+
+import './App.css';
+import UseState from './Components/UseState/UseState';
+
+function App() {
+  return (
+    <div className="App">
+    <UseState />
+    </div>
+  );
+}
+
+export default App;
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+         useState.js
+		 
+		 
+		 
+import React,{useState} from 'react';
+
+const UseState = () => {
+    const [count , setCount] = useState(0)
+
+    console.log('useState Render');
+  return (
+    <div>
+      <button onClick={()=> setCount(c=>c +1)}>Count {count} </button>
+
+      <button onClick={()=> setCount(0)} > Count to 0</button>
+
+      <button onClick={()=> setCount(5)} > Count to 5</button>
+      
+    </div>
+  );
+}
+
+export default UseState;

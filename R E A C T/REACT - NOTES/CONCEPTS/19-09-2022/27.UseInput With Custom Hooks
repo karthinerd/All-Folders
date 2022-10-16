@@ -1,0 +1,97 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 19-09-2022 )
+										   
+										   
+										   
+										   
+// ! UseInput With Custom Hooks [ Container ]
+import  { useState } from 'react';
+
+
+function useInput(initialValue) {
+   const [value , setValue] = useState(initialValue)
+
+
+const reset = ()=> {
+    setValue(initialValue)
+}
+
+const bind = {
+    value,
+    onChange: e => {
+      setValue(e.target.value)
+    }
+  }
+
+return [ value , bind , reset ]
+}
+
+export default useInput;
+
+------------------------------------------------------------------------------------------------------------------
+
+// ! UseInput
+
+import React from 'react';
+
+import useInput from '../Hooks/useInput';
+function UserForm() {
+    
+
+   const [firstName , bindFirstName , resetFirstName] = useInput('')
+
+   const [lastName , bindLastName , resetLastName] = useInput('')
+
+    const submitHandler = e => {
+        e.preventDefault()
+        alert(`Hello ${firstName} ${lastName}`)
+        resetFirstName()
+        resetLastName()
+    }
+    return (
+		<div>
+      <form onSubmit={submitHandler}>
+        <label>FirstName</label>
+        <input
+         {...bindFirstName }
+         type='text'
+         />
+         <label>lastName</label>
+        <input
+        {...bindLastName}
+         type='text'
+         />
+         <button>Submit</button>
+      </form>
+		</div>
+	)
+}
+
+export default UserForm
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+           App.js
+		   
+		   
+		   
+import './App.css';
+
+import UserForm from './Counters/UserForm';
+
+
+function App() {
+  return (
+  
+    <div className="App">
+     
+    <UserForm />
+    
+    </div>
+  );
+}
+
+export default App;

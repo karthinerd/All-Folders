@@ -1,0 +1,196 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 18-09-2022 )
+										   
+										   
+										   
+	                                      A
+//  ! UseReducer and UseContext
+
+import React , {useContext} from 'react';
+
+import { CountContext } from '../App';
+
+function ComponentA() {
+    const countContext = useContext(CountContext)
+  return (
+    <div>
+   Count {countContext.countState} -  ComponentA<br></br>
+      <button onClick={()=> countContext.countDispatch('increment')}> Increment</button><br></br>
+      <button onClick={() => countContext.countDispatch('decrement')}> Decrement</button><br></br>
+      <button onClick={() => countContext.countDispatch('reset')}> Reset </button>
+    </div>
+  );
+}
+
+export default ComponentA;
+
+                 ----------------------------------
+
+                    B				 
+					
+					
+	
+import React from 'react';
+import ComponentD from './ComponentD';
+
+function ComponentB() {
+  return (
+    <div>
+      <ComponentD />
+    </div>
+  );
+}
+
+export default ComponentB;
+
+        --------------------------
+
+                c 
+
+				
+
+import React from 'react';
+import ComponentE from './ComponentE';
+
+function ComponentC() {
+  return (
+    <div>
+      <ComponentE />
+    </div>
+  );
+}
+
+export default ComponentC;
+       
+	   
+	   ---------------------------
+	   
+	    D
+		
+		
+		
+//  ! UseReducer and UseContext
+
+import React , {useContext} from 'react';
+
+import { CountContext } from '../App';
+
+function ComponentD() {
+    const countContext = useContext(CountContext)
+  return (
+    <div>
+    Count {countContext.countState} -  ComponentD<br></br>
+      <button onClick={()=> countContext.countDispatch('increment')}> Increment</button><br></br>
+      <button onClick={() => countContext.countDispatch('decrement')}> Decrement</button><br></br>
+      <button onClick={() => countContext.countDispatch('reset')}> Reset </button>
+    </div>
+  );
+}
+
+export default ComponentD;
+
+
+---------------------------------------------------------------------------------------------------------
+
+    E
+	
+	
+	
+
+import React from 'react';
+import ComponentF from './ComponentF';
+
+function ComponentE() {
+  return (
+    <div>
+      <ComponentF />
+    </div>
+  );
+}
+
+export default ComponentE;
+
+-------------------------------------------------------------------
+
+  F
+  
+  
+  
+//  ! UseReducer and UseContext
+
+import React , {useContext} from 'react';
+
+import { CountContext } from '../App';
+
+function ComponentF() {
+    const countContext = useContext(CountContext)
+  return (
+    <div>
+    Count {countContext.countState}  -  ComponentF <br></br>
+      <button onClick={()=> countContext.countDispatch('increment')}> Increment</button><br></br>
+      <button onClick={() => countContext.countDispatch('decrement')}> Decrement</button><br></br>
+      <button onClick={() => countContext.countDispatch('reset')}> Reset </button>
+    </div>
+  );
+}
+
+export default ComponentF;
+
+
+ -----------------------------------------------------------------------------------------------------------
+ 
+             App.js
+			 
+			 
+	
+	
+	
+import React , {useReducer} from 'react';
+import './App.css';
+import ComponentA from './UseReducer - UseContext/ComponentA';
+import ComponentB from './UseReducer - UseContext/ComponentB';
+import ComponentC from './UseReducer - UseContext/ComponentC';
+
+
+export const CountContext = React.createContext()  
+
+const initialState = 0 
+
+const reducer = (state ,action) => {
+
+  switch (action) {
+      case 'increment':
+          return state + 1
+      case 'decrement':
+          return state - 1
+      case 'reset':
+           return initialState
+                   
+      default:
+          return state
+  }
+}
+
+function App() {
+
+  const [count , dispatch] = useReducer(reducer,initialState)
+  return (
+    <CountContext.Provider value={{countState:count , countDispatch : dispatch}}>
+    <div className="App">
+     
+     count - {count}
+
+  <ComponentA />
+
+  <ComponentB />
+
+  <ComponentC />
+
+    </div>
+    </CountContext.Provider>
+  );
+}
+
+export default App;

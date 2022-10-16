@@ -1,0 +1,27 @@
+
+<h2>Login Details</h2>
+
+<table>
+    <thead>
+        <tr>
+            <th>E-MAIL ID</th>
+            <th>Password</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each details}}
+        <tr>
+            <td>{{this.email}}</td>
+            <td>{{this.password}}</td>
+            <td>
+                <a href="/login/{{this._id}}"> <button> Edit </button> </a>
+                <a href="/login/delete/{{this._id}}"> <button onclick="return confirm('Do You Want to Delete This ?')"> Delete </button> </a>
+            </td>
+        </tr>
+    </tbody>
+    {{/each}}
+
+</table>
+
+ <a href="/login"> <button>Create New+</button> </a>

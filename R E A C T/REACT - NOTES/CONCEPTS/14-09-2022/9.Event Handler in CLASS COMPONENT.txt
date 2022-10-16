@@ -1,0 +1,48 @@
+
+
+   5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 14-09-2022 )
+  
+  import React, { Component } from 'react';
+
+
+// ! Event Handler in CLASS COMPONENT
+export class ClassClick extends Component {
+
+    clickHandler() {
+        console.log("Button Clicks ");
+    }
+  render() {
+    return (
+      <div>
+        <button onClick={this.clickHandler}>Click me</button>
+      </div>
+    );
+  }
+}
+
+export default ClassClick;
+
+
+APP.JS
+
+
+import './App.css';
+
+import ClassClick from './components/ClassClick';
+
+function App() {
+  return (
+
+  <div className="App">
+    
+<ClassClick/>
+  
+  </div>
+
+  );
+  
+}
+
+export default App;

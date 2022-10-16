@@ -1,0 +1,69 @@
+
+
+
+
+                5 Day Challenge [ REACT JS ]
+  
+               Today Learning ( 15-09-2022 )
+
+
+
+
+        /* ! appStyles.module.css */
+
+.success {
+
+    color: rgb(24, 225, 51);
+
+}
+
+
+   
+        /* ? appStyles.css */
+
+.error {
+
+    color: rgb(125, 18, 233);
+    
+}
+
+			   
+			   Inline.js
+			   
+			   
+	<h1 className='error'> Error in InLine </h1>
+
+	
+			   
+			   App.js
+
+// ! Import Normal StyleSheet [ css ]
+
+import './appStyles.css' ;
+
+// ? Import Module StyleSheet
+
+import styles from './appStyles.module.css' ;
+
+// ! Local Scope - Css Modules
+
+import Inline from './components/Inline';
+
+function App() {
+  return (
+    
+  <div>
+    
+ <h1 className='error'> Error </h1>
+
+ <h1 className={styles.success}> Module styles </h1>
+
+ <Inline/>
+
+  </div>
+
+  );
+  
+}
+
+export default App;

@@ -1,0 +1,107 @@
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 14-09-2022 )
+  
+          UserGreet.js
+		  
+// ! Conditional Rendering
+
+import React, { Component } from 'react';
+
+ class UserGreet extends Component {
+
+    constructor(props) {
+
+      super(props)
+    
+      this.state = {
+
+            // isLoggedIn : false
+
+            isLoggedIn : true
+      }
+    }
+    
+  render() {
+    
+    // ! Short-Circuit Condition
+    
+    return this.state.isLoggedIn && <div>Welcome Karthi</div>
+
+
+   /*  // ? Ternary Operator
+    return(
+        this.state.isLoggedIn ? (
+        <div>Welcome Karthi</div> ) : (
+        <div>welcome Guest</div> )
+    ) */
+
+   /*  // ! Element Variables
+
+    let message ;
+
+    if(this.state.isLoggedIn) {
+        
+        message = <div>Welcome Karthi</div>
+    }
+    else {
+
+        message = <div>Welcome Guest</div>
+
+    }
+    return ( 
+        <div>{message}</div>
+    ) */
+
+/*     // ? If-else Condition
+    if(this.state.isLoggedIn) {
+        return (
+    
+            <div>Welcome Karthi</div>
+        )
+    }
+    else {
+        return (
+    
+            <div>Welcome Guest</div>
+      )
+    } */
+
+ /*    return (
+      <div>
+        <div>Welcome Karthi</div>
+        <div>Welcome Guest</div>
+
+      </div>
+    ); */
+
+  }
+}
+
+export default UserGreet;
+
+
+              APP.js
+			  
+
+
+import './App.css';
+
+import UserGreet from './components/UserGreet';
+
+function App() {
+  return (
+    
+  <div className="App">
+    
+  <UserGreet/>
+
+  </div>
+
+  );
+  
+}
+
+export default App;
+			  

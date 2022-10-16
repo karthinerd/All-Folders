@@ -1,0 +1,63 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 18-09-2022 )
+										   
+										   
+										   
+	// ! DATA FETCHING WITH USE-EFFECT  ( INDIVIDUAL DATA)
+import React, { useState, useEffect } from 'react';
+
+// ?  IMPORT AXIOS
+import axios from 'axios';
+
+function DataFetching() {
+    const[post , setPost] = useState({})
+
+    const [id , setId] = useState(1)
+
+    useEffect(()=> {
+        axios.get(`https://jsonplaceholder.typicode.com/posts/${id}`)
+        .then(res => {
+            console.log(res);
+            setPost(res.data)
+        })
+        .catch(err => {
+            console.log(err);
+        })
+    },[id])
+  return (
+    <div>
+        <input type='text' value={id} onChange={e=> setId(e.target.value)} />
+        <h1> DATA FETCHING </h1>
+        <h3>  {post.title} </h3>
+      
+    </div>
+  );
+}
+
+export default DataFetching;
+									   
+									   ------------------------------------
+									   
+									   
+           APP.JS
+
+
+	
+import './App.css';
+import DataFetching from './components/DataFetching';
+
+
+function App() {
+  return (
+    <div className="App">
+      
+   <DataFetching />
+    
+    </div>
+  );
+}
+
+export default App;
+	   

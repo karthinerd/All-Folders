@@ -1,0 +1,70 @@
+
+
+              5 Day Challenge [ REACT JS ]
+  
+               Today Learning ( 15-09-2022 )
+
+
+           Stylesheet.js
+		   
+
+// ! Styling React Component
+
+
+import React from 'react';
+
+import './myStyles.css' ;
+
+function Stylesheet(props) {
+
+    let className = props.primary ? 'primary' : ' ' ;
+
+  return (
+    <div>
+        
+      {/* <h1 className='primary'>STYLESHEET</h1> */}
+
+      <h1 className={`${className} font-xl`}>STYLESHEET</h1>
+
+    </div>
+  );
+}
+
+export default Stylesheet;
+
+
+
+                  myStyles.css
+				  
+				  
+
+.primary {
+    color: blue;
+}
+
+.font-xl {
+
+    font-size: 55px;
+}
+			   
+			   
+			   App.js
+            
+import './App.css';
+
+import Stylesheet from './components/Stylesheet';
+
+function App() {
+  return (
+    
+  <div className="App">
+    
+ <Stylesheet primary={true}/>
+
+  </div>
+
+  );
+  
+}
+
+export default App;

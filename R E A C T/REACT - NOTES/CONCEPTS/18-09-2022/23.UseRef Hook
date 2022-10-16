@@ -1,0 +1,50 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 18-09-2022 )
+										   
+										   
+										   
+										   
+//!  UseRef Hook
+
+import React,{useEffect , useRef} from 'react';
+
+function FocusInput() {
+
+    const userRef = useRef(null)
+
+    useEffect(()=>{
+            //  ?  Focus Input 
+            userRef.current.focus()
+    }, [])
+
+  return (
+    <div>
+      <input ref={userRef} type='text' ></input>
+    </div>
+  );
+}
+
+export default FocusInput;
+
+---------------------------------------------------------------------------------------------------
+
+                 App.js
+				 
+				 
+				 
+import './App.css';
+import FocusInput from './components/FocusInput';
+
+
+function App() {
+  return (
+  
+    <div className="App">
+     <FocusInput />
+    </div>
+  );
+}
+
+export default App;

@@ -1,0 +1,65 @@
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 20-09-2022 )
+										   
+										   
+										   // ! Parent Component
+import React,{useState} from 'react';
+import {MemorizedChildTwo} from './ChildTwo';
+
+const ParentTwo = () => {
+    const [count , setCount] = useState(0)
+
+    const [Name, setName] = useState('karthi');
+
+    console.log('ParentOne Render');
+  return (
+    <div>
+
+      <button onClick={()=> setCount(c=>c +1)}>Count {count} </button>
+      <button onClick={()=> setName('Raj')}>Change Name </button>
+    <MemorizedChildTwo Name={Name} />
+    </div>
+  );
+}
+
+export default ParentTwo;
+
+---------------------------------------------------------------------------------------
+
+
+// ! Child Component
+import React from 'react';
+
+const ChildTwo = () => {
+    console.log('ChildOne Render');
+  return (
+    <div>
+      Child One
+      
+    </div>
+  );
+}
+
+export default ChildTwo;
+
+export const MemorizedChildTwo = React.memo(ChildTwo)
+
+---------------------------------------------------------------------------------------
+
+
+             App.js
+			 
+			 
+import './App.css';
+import ParentTwo from './Components/Optimization/ParentTwo';
+
+function App() {
+  return (
+    <div className="App">
+      <ParentTwo />
+          </div>
+  );
+}
+
+export default App;

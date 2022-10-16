@@ -1,0 +1,127 @@
+             
+			 
+			        5 Day Challenge [ REACT JS ]
+  
+               Today Learning ( 15-09-2022 )
+			   
+			   
+			   
+			   LifeCycle.js
+			   
+
+// !  MOUNTING LIFECYCLE METHOD IN CLASS COMPONENT
+
+// ? Parent Component
+import React, { Component } from 'react';
+
+// ?  Import Child Component
+import LifecycleA from './LifeCycleA';
+
+class Lifecycle extends Component {
+
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         name : 'karthi'
+      }
+      console.log("LifeCycle Constructor");
+    }
+
+    static getDerivedStateFromProps(props , state) {
+        console.log(" LifeCycle getDerivedStateFromProps");
+        return null ;
+    }
+
+    componentDidMount() {
+        console.log("LifeCycle componentDidMount");
+    }
+    
+  render() {
+    console.log("LifeCycle Render()");
+
+    return (
+      <div>
+        LifeCycle
+
+        <LifecycleA/>
+
+      </div>
+    );
+  }
+}
+
+export default Lifecycle;
+			   
+			   
+			   
+			   LifeCycleA.js
+			   
+			   
+
+// !  MOUNTING LIFECYCLE METHOD IN CLASS COMPONENT
+
+// ?  Child Component
+
+import React, { Component } from 'react';
+
+class LifecycleA extends Component {
+
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         name : 'karthi'
+      }
+      console.log("LifeCycleA Constructor");
+    }
+
+    static getDerivedStateFromProps(props , state) {
+        console.log(" LifeCycleA getDerivedStateFromProps");
+        return null ;
+    }
+
+    componentDidMount() {
+        console.log("LifeCycleA componentDidMount");
+    }
+    
+  render() {
+    console.log("LifeCycleA Render()");
+
+    return (
+      <div>
+        LifeCycle A
+      </div>
+    );
+  }
+}
+
+export default LifecycleA;
+
+
+
+
+                 App.js
+				 
+				 
+				 
+
+import './App.css'
+
+import Lifecycle from './components/Lifecycle';
+
+function App() {
+  return (
+    
+  <div className='App'>
+    
+    <Lifecycle/>
+
+  </div>
+
+  );
+  
+}
+
+export default App;
+				 

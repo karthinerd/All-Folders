@@ -1,0 +1,62 @@
+
+
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 09-09-2022 )
+  
+  
+  function.js
+  
+import React from 'react';
+
+
+// ? DESTRUCTURING PROPS IN FUNCTION
+
+// ! METHOD 1
+
+/* export const Fun = ({name,age}) => {
+    
+return(
+    <div>
+      <h1>Hi From {name} and i'm {age} years old</h1> 
+    
+      </div>
+)} */
+
+// ? METHOD 2
+
+export const Fun = (props) => {
+
+    const{name,age}= props ;
+
+    return (
+        <div>
+          <h1>Hi From {name} and i'm {age} years old</h1> 
+        
+          </div>
+    )}
+	
+	
+	App.js
+	
+	
+
+import './App.css';
+
+import { Fun } from './components/function';
+
+function App() {
+  return (
+  <div className="App">
+
+    <Fun name="karthi" age="20" > <p>I want to Become a MERN Stack Developer</p></Fun>
+
+     <Fun name="kumar" age="24" > <button>Click me</button> </Fun>
+
+  </div>
+  );
+}
+
+export default App;
+	

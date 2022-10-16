@@ -1,0 +1,96 @@
+                     
+					 
+					 
+					 5 Day Challenge [ REACT JS ]
+  
+                     Today Learning ( 16-09-2022 )
+					 
+					 
+	// ? Forwarding Refs - Parent Component
+import React, { Component } from 'react';
+
+// Import Child Component
+import FRInput from './FRInput';
+
+class FRParentInput extends Component {
+
+    constructor(props) {
+      super(props)
+
+    this.inputRef = React.createRef()
+    }
+
+    clickHandler = ()=> {
+
+        this.inputRef.current.focus()
+        
+    }
+    
+  render() {
+    return (
+      <div>
+
+        <FRInput ref={this.inputRef} />
+
+        <button onClick={this.clickHandler}>Forwarding Refs</button>
+
+      </div>
+    );
+  }
+}
+
+export default FRParentInput;
+
+-------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// ! Forwarding REFs
+
+// ? Child Component
+
+import React from 'react';
+
+/* function FRInput() {
+  return (
+    <div>
+      <input type='text' />
+    </div>
+  );
+} */
+
+const FRInput = React.forwardRef((props ,ref) => {
+    return (
+        <div>
+          <input type='text' ref={ref}/>
+        </div>
+    )
+}) 
+export default FRInput;
+
+------------------------------------------------------------------------------------------------------------------------
+
+
+                           APP.js
+
+
+import './App.css'
+
+import FocusInput from './components/FocusInput';
+import FRParentInput from './components/FRParentInput';
+
+function App() {
+  return (
+    
+  <div className='App'>   
+
+   <FRParentInput />
+       
+  </div>
+
+  );
+  
+}
+
+export default App;
+						   

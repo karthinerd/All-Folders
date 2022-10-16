@@ -1,0 +1,62 @@
+
+
+                  5 Day Challenge [ REACT JS ]
+  
+                     Today Learning ( 16-09-2022 )
+					 
+					 
+
+// ! Portals
+
+import React from 'react';
+
+import ReactDOM  from 'react-dom';
+
+function PortalDemo() {
+
+  return ReactDOM.createPortal (
+    <div>
+      <h1> Portals Demo</h1>
+    </div> ,
+    document.getElementById('portal-root')
+  );
+}
+
+export default PortalDemo;
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+                APP.JS
+				
+				
+				
+	
+import './App.css'
+import PortalDemo from './components/PortalDemo';
+
+
+
+function App() {
+  return (
+    
+  <div className='App'>   
+
+  <PortalDemo />
+       
+  </div>
+
+  );
+  
+}
+
+export default App;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+ Pubic Folder ----> Index.html
+ 
+ 
+  <div id="portal-root"></div>
+	 

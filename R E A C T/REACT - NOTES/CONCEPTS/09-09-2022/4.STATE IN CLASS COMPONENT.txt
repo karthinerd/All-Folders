@@ -1,0 +1,62 @@
+
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 09-09-2022 )
+  
+  
+     state.js
+
+
+import React, { Component } from 'react';
+
+// STATE in CLASS COMPONENT
+
+class State extends Component {
+    constructor() {
+        super();
+        this.state = {
+            message : "welcome Viewer"
+        }
+    }
+    changeValue() {
+        this.setState ( {
+           message : "Thanks For Viewing Us"
+        })
+    }
+    render() { 
+        return (
+            <div>
+                <h1> {this.state.message} </h1>
+                <button onClick={()=> this.changeValue()}>Surprise</button>
+            </div>
+        );
+    }
+}
+ 
+
+
+export default State; 
+
+
+
+    App.js
+	
+	
+
+import './App.css';
+
+import State from './components/state';
+
+function App() {
+  return (
+  <div className="App">
+
+   <State/>
+
+  </div>
+  );
+}
+
+export default App;
+	

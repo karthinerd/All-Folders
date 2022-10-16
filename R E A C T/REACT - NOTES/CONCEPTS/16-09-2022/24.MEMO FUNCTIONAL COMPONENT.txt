@@ -1,0 +1,99 @@
+
+   5 Day Challenge [ REACT JS ]
+  
+    Today Learning ( 16-09-2022 )
+ 
+ 
+         MEMO FUNCTIONAL COMPONENT
+		 
+		 
+
+// ! Parent Component
+
+import React, { Component} from 'react';
+
+// ! Import Function Memo Component
+import MemoComponent from './MemoComponent';
+
+    class ParentComp extends Component {
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+
+         name : "karthi"
+
+      }
+    }
+
+    componentDidMount() {
+        setInterval(()=>{
+            this.setState({
+                name : "karthi"
+            })
+        },2000)
+    }
+
+  render() {
+    console.log("Parent Component render");
+
+    return (
+      <div>
+        Parent Component
+      {/* Function Memo Component */}
+      <MemoComponent name={this.state.name}/>
+      </div>
+    );
+  }
+}
+
+export default ParentComp;
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// ! Memo Component
+
+import React from 'react';
+
+function MemoComponent({name}) {
+    console.log("Memo Render");
+  return (
+
+    <div>
+      {name}
+    </div>
+  )
+}
+
+//? Avoid Re-Render function Memo Component
+
+export default React.memo( MemoComponent ) ;
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+          APP.JS
+		  
+		  
+
+import './App.css'
+
+import ParentComp from './components/ParentComp';
+
+function App() {
+  return (
+    
+  <div className='App'>   
+
+ <ParentComp/>
+       
+  </div>
+
+  );
+  
+}
+
+export default App;
+		  

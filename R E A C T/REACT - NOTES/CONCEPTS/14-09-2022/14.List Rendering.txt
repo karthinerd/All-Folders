@@ -1,0 +1,170 @@
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 14-09-2022 )
+  ---------------
+  
+  // ! List Rendering  1
+
+import React from 'react';
+
+function List() {
+
+    const names = ["karthi","kumar","latha"]
+
+    const nameList =  names.map(name=><h2>{name}</h2>)
+
+  return (
+    <div>
+    
+    {
+       
+       nameList
+
+    }
+
+    </div>
+  );
+}
+
+export default List;
+
+------------------------------------------------------
+
+// ! List Rendering  2
+
+import React from 'react';
+
+function List() {
+
+    const persons = [
+    {
+        id:1,
+        name:"Karthi",
+        Age:20,
+        skill:"MERN Stack Developer"
+    } ,
+    {
+        id:2,
+        name:"Kumar",
+        Age:24,
+        skill:"JAVA Developer"
+    } ,
+    {
+        id:3,
+        name:"Latha",
+        Age:49,
+        skill:"HOUSE WIFE"
+    } ,
+
+      ]
+
+    const personList =  persons.map(person=><h2>Rollno :- {person.id} : I am {person.name}, My Age is {person.Age} , I'm Working as a {person.skill}</h2>)
+
+  return (
+    <div>
+    
+    {
+       
+       personList
+
+    }
+
+    </div>
+  );
+}
+
+export default List;
+
+
+
+----------------------------------------------------------------
+
+// ! List Rendering 3 [Better Code]
+
+import React from 'react';
+
+import Person from './Person';
+
+function List() {
+
+    const persons = [
+    {
+        id:1,
+        name:"Karthi",
+        Age:20,
+        skill:"MERN Stack Developer"
+    } ,
+    {
+        id:2,
+        name:"Kumar",
+        Age:24,
+        skill:"JAVA Developer"
+    } ,
+    {
+        id:3,
+        name:"Latha",
+        Age:49,
+        skill:"HOUSE WIFE"
+    } ,
+
+      ]
+
+    const personList =  persons.map( person => ( <Person person={person} />) )
+
+  return (
+    <div>
+    
+    {
+       
+       personList
+
+    }
+
+    </div>
+  );
+}
+
+export default List;
+
+
+
+       Person.js
+
+import React from 'react';
+
+function Person({person}) {
+  return (
+    <div>
+      <h2>
+        Rollno :- {person.id} : I am {person.name}, My Age is {person.Age} , I'm Working as a {person.skill}
+      </h2>
+    </div>
+  );
+}
+
+export default Person;
+
+--------------------------------------------
+
+        APP.JS
+		
+import './App.css';
+
+import List from './components/List';
+
+function App() {
+  return (
+    
+  <div className="App">
+    
+  <List/>
+
+  </div>
+
+  );
+  
+}
+
+export default App;
+		

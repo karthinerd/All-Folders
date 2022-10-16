@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>RESTFUL API - CURD</title>
+
+</head>
+
+<body>
+
+    <h1>CURD Application</h1>
+
+    <h2>Add User</h2>
+
+    <form action="/addUser" method="post">
+
+        USER ID <input type="text" id="userid" name="userid" size="20"><br>
+
+        Name <input type="text" id="username" name="username" size="20"><br>
+
+        D.O.B <input type="date" id="dob" name="dob" size="20"><br>
+
+        Profession <input type="text" id="profession" name="profession" size="20"><br>
+
+        <button type="submit" name="submit">Add User</button>
+
+    </form>
+
+    <h1>Get Specific</h1>
+
+    <form action="/see" method="post">
+
+        USER ID <input type="text" id="id" name="id" size="20"><br>
+
+        <button type="submit" name="submit">see User</button>
+
+    </form>
+
+    <h2>Delete?</h2>
+
+    <form action="/delete" method="post">
+
+        USER ID <input type="text" id="sid" name="sid" size="20"><br>
+
+        <button type="submit" name="submit">delete User</button>
+
+    </form>
+
+    <h2>Show all</h2>
+
+    <form action="/show" method="get">
+        
+        <button type="submit" name="submit">Show all User</button>
+
+    </form>
+
+</body>
+
+</html>

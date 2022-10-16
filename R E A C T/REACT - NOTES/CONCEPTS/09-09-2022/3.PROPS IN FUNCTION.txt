@@ -1,0 +1,47 @@
+
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 09-09-2022 )
+  
+   PROPS  
+   
+   Fun.js
+   
+import React from 'react';
+
+
+// ? PROPS IN FUNCTION
+
+export const Fun = (props) => {
+    console.log(props);
+return(
+    <div>
+      <h1>Hi From {props.name} and i'm {props.age} years old</h1> 
+      {props.children}
+      </div>
+)}
+
+
+          App.js
+	
+
+import './App.css';
+
+// ! Arrow Function import
+import { Fun } from './components/function';
+
+function App() {
+  return (
+    <div className="App">
+
+     <Fun name="karthi" age="20" > <p>I want to Become a MERN Stack Developer</p></Fun>
+
+     <Fun name="kumar" age="24" > <button>Click me</button> </Fun>
+
+    </div>
+  );
+}
+
+export default App;	
+		  

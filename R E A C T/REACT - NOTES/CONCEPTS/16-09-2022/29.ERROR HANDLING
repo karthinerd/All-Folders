@@ -1,0 +1,108 @@
+                     
+					 5 Day Challenge [ REACT JS ]
+  
+                       Today Learning ( 16-09-2022 )
+					   
+				
+
+
+           Hero.js				
+					   
+// ! Error Handling Phase Methods
+
+import React from 'react';
+
+function Hero({heroName}) {
+    if(heroName === 'Joker') {
+        throw new Error('Not a Hero!!!')
+    }
+  return (
+    <div>
+      {heroName}
+    </div>
+  );
+}
+
+export default Hero;
+
+--------------------------------------------------------------------------------
+                 
+				 
+				 
+				 ErrorBoundary.js
+
+// ? Error Handling
+
+import React, { Component } from 'react';
+
+class ErrorBoundary extends Component {
+
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         hasError : false
+      }
+    }
+    
+    static getDerivedStateFromError(error) {
+        return {
+            hasError : true
+        }
+    }
+
+    componentDidCatch(error,info) {
+        console.log(error);
+        console.log(info);
+    }
+  render() {
+    if (this.state.hasError) {
+        return (
+            <h1>
+              Something Went Wrong
+            </h1>
+          );
+    }
+    return (
+       this.props.children
+      );
+  }
+}
+
+export default ErrorBoundary;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+                App.js
+ 
+ 
+ 
+ 
+import './App.css'
+
+import ErrorBoundary from './components/ErrorBoundary';
+
+import Hero from './components/Hero';
+
+function App() {
+  return (
+    
+  <div className='App'>  
+ <ErrorBoundary>
+  <Hero heroName="SuperMan" />
+  </ErrorBoundary>
+
+  <ErrorBoundary>
+  <Hero heroName="BatMan" />
+  </ErrorBoundary> 
+  <ErrorBoundary>
+  <Hero heroName="Joker" />
+  </ErrorBoundary>
+  </div>
+
+  );
+  
+}
+
+export default App;

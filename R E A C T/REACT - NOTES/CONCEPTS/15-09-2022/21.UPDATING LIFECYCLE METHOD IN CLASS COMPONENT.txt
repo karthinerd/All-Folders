@@ -1,0 +1,163 @@
+
+
+                 5 Day Challenge [ REACT JS ]
+  
+               Today Learning ( 15-09-2022 )
+			   
+
+        LifeCycle.js
+
+// ! UPDATING LIFECYCLE METHOD IN CLASS COMPONENT
+// ? Parent Component
+import React, { Component } from 'react';
+
+// ?  Import Child Component
+import LifecycleA from './LifeCycleA';
+
+class Lifecycle extends Component {
+
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         name : 'karthi'
+      }
+      console.log("LifeCycle Constructor");
+    }
+
+    static getDerivedStateFromProps(props , state) {
+        console.log(" LifeCycle getDerivedStateFromProps");
+        return null ;
+    }
+
+    componentDidMount() {
+        console.log("LifeCycle componentDidMount");
+    }
+
+    shouldComponentUpdate() {
+        console.log("LifeCycle shouldComponentUpdate");
+        return true ;
+    }
+    
+    getSnapshotBeforeUpdate(prevProps , prevState){
+        console.log("LifeCycle getSnapshotBeforeUpdate");
+        return null ;
+    }
+
+    componentDidUpdate() {
+        console.log("LifeCycle componentDidUpdate");
+    }
+
+    changeState = () => {
+          
+        this.setState({
+
+            name :"kumar"
+        })
+    }
+  render() {
+    console.log("LifeCycle Render()");
+
+    return (
+      <div>
+        LifeCycle <br></br>
+
+        <button onClick={this.changeState}>Change State</button>
+
+        <LifecycleA/>
+
+      </div>
+    );
+  }
+}
+
+export default Lifecycle;
+			   
+			   
+			   
+			   
+			   LifeCycleA.js
+			   
+			   
+
+
+// ! UPDATING LIFECYCLE METHOD IN CLASS COMPONENT
+
+// ?  Child Component
+
+import React, { Component } from 'react';
+
+class LifecycleA extends Component {
+
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         name : 'karthi'
+      }
+      console.log("LifeCycleA Constructor");
+    }
+
+    static getDerivedStateFromProps(props , state) {
+        console.log(" LifeCycleA getDerivedStateFromProps");
+        return null ;
+    }
+
+    componentDidMount() {
+        console.log("LifeCycleA componentDidMount");
+    }
+
+    shouldComponentUpdate() {
+      console.log("LifeCycleA shouldComponentUpdate");
+      return true ;
+  }
+  
+  getSnapshotBeforeUpdate(prevProps , prevState){
+      console.log("LifeCycleA getSnapshotBeforeUpdate");
+      return null
+  }
+
+  componentDidUpdate() {
+      console.log("LifeCycleA componentDidUpdate");
+  }
+    
+  render() {
+    console.log("LifeCycleA Render()");
+
+    return (
+      <div>
+        LifeCycle A
+      </div>
+    );
+  }
+}
+
+export default LifecycleA;
+			   
+			   
+			   
+			   
+			   App.js
+			   
+			   
+			   
+
+import './App.css'
+
+import Lifecycle from './components/Lifecycle';
+
+function App() {
+  return (
+    
+  <div className='App'>
+    
+    <Lifecycle/>
+
+  </div>
+
+  );
+  
+}
+
+export default App;
+			   

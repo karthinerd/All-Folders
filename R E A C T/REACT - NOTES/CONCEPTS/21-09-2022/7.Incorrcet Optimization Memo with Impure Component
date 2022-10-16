@@ -1,0 +1,74 @@
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 21-09-2022 )
+										   
+										   
+										   // ! Parent Component
+import React,{useState} from 'react';
+import { MemorizedChildFour } from './ChildFour';
+// import {MemorizedChildThree} from './ChildThree';
+
+const ParentThree = () => {
+    const [count , setCount] = useState(0)
+
+    const [Name, setName] = useState('karthi');
+
+    console.log('ParentThree Render');
+  return (
+    <div>
+
+      <button onClick={()=> setCount(c=>c +1)}>Count {count} </button>
+      <button onClick={()=> setName('Raj')}>Change Name </button>
+
+      <MemorizedChildFour Name={Name}>
+
+      </MemorizedChildFour>
+   {/*  <MemorizedChildThree Name={Name} >
+        <strong>Hello</strong>
+    </MemorizedChildThree> */}
+    </div>
+  );
+}
+
+export default ParentThree;
+
+-------------------------------------------------------------------------------------------------
+
+// ! Incorrcet Optimization Memo with Impure Component
+
+import React from 'react';
+
+const ChildFour = ({Name}) => {
+    const date =new Date()
+    console.log("ChildFour Render");
+  return (
+    <div>
+      Hello {Name} , it's Currently {date.getHours()} : {date.getMinutes} : {date.getMilliseconds} : {date.getFullYear}
+    </div>
+  );
+}
+
+export default ChildFour;
+
+export const MemorizedChildFour = React.memo(ChildFour)
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+      APP.js
+	  
+	  
+	  
+import './App.css';
+import ParentThree from './Components/Incorrect Optimization/ParentThree';
+
+
+function App() {
+  return (
+    <div className="App">
+    <ParentThree/>
+          </div>
+  );
+}
+
+export default App;

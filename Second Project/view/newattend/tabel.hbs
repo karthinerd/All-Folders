@@ -1,0 +1,22 @@
+
+<table>
+    <thead>
+        <tr>
+            <th>ROLL NO</th>
+            <th>Name</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#each list}}
+        <tr>
+            <td>{{this.rollno}}</td>
+            <td>{{this.name}}</td>
+            <td>
+                <a href="/edit"><button>Edit</button></a>
+                <a href="/delete"><button>Delete</button></a>
+            </td>
+        </tr>
+        {{/each}}
+    </tbody>
+</table>

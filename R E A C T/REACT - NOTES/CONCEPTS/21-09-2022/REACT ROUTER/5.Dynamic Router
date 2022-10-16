@@ -1,0 +1,112 @@
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 21-09-2022 )
+										   
+										   
+										   // ! Dynamic Router
+import React from 'react';
+
+// ? Import Outlet
+import { Outlet } from 'react-router';
+const Users = () => {
+  return (
+    <div>
+      <h1>User 1</h1>
+      <h1>User 2</h1>
+      <h1>User 3</h1>
+      <Outlet/>
+    </div>
+  );
+}
+
+export default Users;
+
+--------------------------------------------------------------------------
+
+
+import React from 'react';
+
+const UserDetail = () => {
+  return (
+    <div>
+      Details About Users
+    </div>
+  );
+}
+
+export default UserDetail;
+
+
+---------------------------------------------------------------
+
+
+
+import React from 'react';
+
+const Admin = () => {
+  return (
+    <div>
+      Admin User
+    </div>
+  );
+}
+
+export default Admin;
+
+-----------------------------------------------------------------
+
+ 
+             App.js
+			 
+			 
+			 
+import {Routes , Route} from 'react-router-dom'
+import { About } from './Components/About';
+import Admin from './Components/Admin';
+import FeaturedProducts from './Components/FeaturedProducts';
+import { Home } from './Components/Home';
+import Navbar from './Components/Navbar';
+import NewProduct from './Components/NewProduct';
+import NoMatch from './Components/NoMatch';
+import OrderSummary from './Components/OrderSummary';
+import Product from './Components/Product';
+import UserDetail from './Components/UserDetail';
+import Users from './Components/Users';
+
+function App() {
+  return (
+    <div className="App">
+
+     <>
+    
+    <Navbar/>
+    <Routes>
+
+      <Route path='/' element={<Home/>} > </Route>
+
+      <Route path='about' element={<About/>} > </Route>
+
+      <Route path='order-summary' element={<OrderSummary/>} >  </Route>
+
+      {/* Nested Router */}
+      <Route path='products' element={<Product/>} > 
+        <Route index element={<FeaturedProducts/>}/>
+        <Route path='featured' element={<FeaturedProducts/>}> </Route>
+        <Route path='new' element={<NewProduct/>}> </Route>
+      </Route>
+       
+       <Route path='users' element={<Users/>}> 
+         <Route path=':userId' element={<UserDetail/>} > </Route>
+         <Route path='admin' element={<Admin/>}></Route>
+       </Route>
+      <Route path='*' element={<NoMatch/>} > </Route>
+      </Routes>
+
+     </>
+    </div>
+
+  );
+}
+
+export default App;
+

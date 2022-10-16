@@ -1,0 +1,109 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 18-09-2022 )
+										   
+										   
+										   
+										   //!  UseContext
+
+                                C
+								
+import ComponentE from './ComponentE';
+import React from 'react';
+
+function ComponentC() {
+  return (
+    <div>
+      <ComponentE/>
+    </div>
+  );
+}
+
+export default ComponentC;
+
+------------------------------------------------------------------------------------------------
+                                   E
+								   
+//!  UseContext
+
+import React from 'react';
+import ComponentF from './ComponentF';
+
+function ComponentE() {
+  return (
+    <div>
+      <ComponentF/>
+    </div>
+  );
+}
+
+export default ComponentE;
+
+-------------------------------------------------------------------------------------------------
+                                F
+
+//!  UseContext
+
+import React from 'react';
+
+import {UserContext , ChannelContext} from '../App';
+
+function ComponentF() {
+  return (
+
+    <div>
+      <UserContext.Consumer>
+        {
+            user => {
+                return(
+                    <ChannelContext.Consumer>
+                        {
+                            channel => {
+                                return <div> User Context Value {user} - Channel Context Value {channel} </div>
+                            }
+                        }
+                    </ChannelContext.Consumer>
+                ) 
+            }
+        }
+      </UserContext.Consumer>
+    </div>
+  );
+}
+
+export default ComponentF;
+
+------------------------------------------------------------------------------------------------------------------------------
+
+  App.js
+  
+  
+  
+import React from 'react';
+import './App.css';
+import ComponentC from './components/ComponentC';
+
+export const UserContext = React.createContext()
+
+export const ChannelContext = React.createContext()
+function App() {
+  return (
+    <div className="App">
+      
+      <UserContext.Provider value={'karthi'}>
+
+      <ChannelContext.Provider value={'Java Developer'}>
+
+      <ComponentC />
+
+      </ChannelContext.Provider>
+
+      </UserContext.Provider>
+ 
+    
+    </div>
+  );
+}
+
+export default App;

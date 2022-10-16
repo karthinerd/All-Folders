@@ -1,0 +1,88 @@
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 20-09-2022 )
+										   
+										   
+										   // ? GrantParent
+										   
+import React, { useState } from 'react';
+import ChildOne from './ChildOne';
+import ParentOne from './ParentOne';
+
+const GrantParent = () => {
+
+    const [newCOunt, setNewCOunt] = useState(0);
+    
+  return (
+    <div>
+      <button onClick={()=>setNewCOunt((nc)=> nc + 1)}> 
+      GrantParent Count - {newCOunt} </button>
+      <ParentOne newCOunt={newCOunt}>
+        <ChildOne></ChildOne>
+      </ParentOne>
+    </div>
+  );
+}
+
+export default GrantParent;
+
+--------------------------------------------------------------------------------
+
+// ! Parent Component
+import React,{useState} from 'react';
+
+const ParentOne = ({children}) => {
+    const [count , setCount] = useState(0)
+
+    console.log('ParentOne Render');
+  return (
+    <div>
+
+      <button onClick={()=> setCount(c=>c +1)}>Count {count} </button>
+      
+      {children}
+    </div>
+  );
+}
+
+export default ParentOne;
+
+
+
+_-------------------------------------------------------------------------------
+
+// ! Child Component
+import React from 'react';
+
+const ChildOne = () => {
+    console.log('ChildOne Render');
+  return (
+    <div>
+      Child One
+      
+    </div>
+  );
+}
+
+export default ChildOne;
+
+-------------------------------------------------------------------------------
+
+    App.js
+	
+	
+	
+import './App.css';
+import GrantParent from './Components/Optimization/GrantParent';
+
+
+
+function App() {
+  return (
+    <div className="App">
+          <GrantParent />
+    </div>
+  );
+}
+
+export default App;

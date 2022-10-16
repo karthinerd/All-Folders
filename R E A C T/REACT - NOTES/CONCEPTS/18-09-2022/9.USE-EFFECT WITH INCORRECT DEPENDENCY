@@ -1,0 +1,56 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 18-09-2022 
+										   
+										   
+// ! USE-EFFECT WITH INCORRECT DEPENDENCY
+
+import React, { useState, useEffect } from 'react';
+
+function IntervalHookCounter() {
+    
+    const[count , setCount] = useState(0)
+
+    const tick = ()=>{
+        setCount(prevCount => prevCount+1)
+    }
+
+useEffect(()=>{
+    const interval = setInterval(tick , 0)
+    return () => {
+        clearInterval(interval)
+    }
+}, [])
+
+  return (
+    <div>
+      {count}
+    </div>
+  );
+}
+
+export default IntervalHookCounter;
+
+----------------------------------------------------------------------------------------------------------------------------------------
+
+
+                App.js
+
+	
+
+	
+import './App.css';
+import IntervalHookCounter from './components/IntervalHookCounter';
+
+function App() {
+  return (
+    <div className="App">
+      
+      <IntervalHookCounter />
+    
+    </div>
+  );
+}
+
+export default App;

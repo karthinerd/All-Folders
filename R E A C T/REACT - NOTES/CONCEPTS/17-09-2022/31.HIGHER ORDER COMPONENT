@@ -1,0 +1,119 @@
+
+
+                             	 5 Day Challenge [ REACT JS ]
+  
+                               Today Learning ( 17-09-2022 )
+							   
+							   
+
+import React from 'react';
+
+const WithCounter = (WrappedComponent , incrementNumber) => {
+    class WithCounter extends React.Component {
+        constructor(props) {
+          super(props)
+        
+          this.state = {
+             count : 0
+          }
+        }
+        
+        incrementCount = () => {
+            this.setState(prevState => {
+                return {count : prevState.count + incrementNumber}
+            })
+        }
+        render() {
+            return (
+                <WrappedComponent 
+                count={this.state.count}
+                incrementCount={this.incrementCount}
+                {...this.props}
+                />
+
+            )
+        }
+    }
+    return WithCounter
+}
+
+export default WithCounter
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+// ! ClickCounter
+
+import React, { Component } from 'react';
+
+import WithCounter from './withCounter';
+
+ class ClickCounter extends Component {
+  render() {
+    const {count,incrementCount} = this.props
+    return (
+      <div>
+        <button onClick={incrementCount} >
+            Clicked {count} times
+        </button>
+      </div>
+    );
+  }
+}
+
+export default WithCounter(ClickCounter , 5)
+
+-------------------------------------------------------------------------------------------------------------------------------------
+
+
+// ? HoverCounter
+
+import React, { Component } from 'react';
+
+import WithCounter from './withCounter';
+
+export class HoverCounter extends Component {
+  render() {
+    const {count,incrementCount} = this.props
+    return (
+      <div>
+        <h2 onMouseOver={incrementCount} >
+         {this.props.name} Hovered {count} times
+        </h2>
+      </div>
+    );
+  }
+}
+
+export default WithCounter(HoverCounter , 6)
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+                      APP.JS
+					  
+					  
+					  
+					  
+import './App.css'
+
+import ClickCounter from './components/ClickCounter';
+
+import HoverCounter from './components/HoverCounter';
+
+function App() {
+  return (
+    
+  <div className='App'>   
+
+   <ClickCounter />
+   <HoverCounter name="karthi" />
+   
+  </div>
+
+  );
+  
+}
+
+export default App;

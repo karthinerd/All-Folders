@@ -1,0 +1,44 @@
+
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 09-09-2022 )
+  
+  
+  Function Component
+  
+    App.js
+
+import './App.css';
+
+import Fun from './components/Function';
+
+function App() {
+  return (
+    <div className="App">
+
+   <Fun/>
+    
+    </div>
+  );
+}
+
+export default App;
+
+
+   Function.js
+   
+   
+import React from 'react';
+
+function Fun() {
+  return (
+    <div>
+      <h1>Hi</h1>
+    </div>
+  );
+}
+
+export default Fun;
+
+   

@@ -1,0 +1,111 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 19-09-2022 )
+										   
+										   
+										   
+// ! useCOunter With Custom Hook [ Container ] 
+
+import { useState  } from 'react';
+
+
+function useCounter(initialCount = 0 , value) {
+    const[count , setCount] = useState(initialCount)
+
+    const increment = ()=>{
+        setCount(prevCount => prevCount + value)
+    }
+
+    const decrement = ()=>{
+        setCount(prevCount => prevCount - value)
+    }
+
+    const reset = ()=>{
+        setCount(0)
+    }
+    return [count , increment , decrement , reset]
+}
+
+export default useCounter;
+
+										   -----------------------------------
+										   
+										   
+										   // ! ONE
+
+import React from 'react';
+
+// ? Import Custom Hook
+import useCounter from '../Hooks/useCounter';
+function CounterOne() {
+
+ const [count , increment , decrement , reset] = useCounter(0,100)
+
+  return (
+    <div>
+      <h2>Count = {count}</h2>
+			<button onClick={increment}>Increment</button>
+			<button onClick={decrement}>Decrement</button>
+			<button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+
+export default CounterOne;
+           
+		   
+		            ----------------------------------------------------
+					
+					
+// ! TWO
+
+import React from 'react';
+
+// ? Import Custom Hook
+import useCounter from '../Hooks/useCounter';
+
+function CounterTwo() {
+
+    const [count , increment , decrement , reset] = useCounter(30,10)
+
+  return (
+    <div>
+      <h2>Count = {count}</h2>
+			<button onClick={increment}>Increment</button>
+			<button onClick={decrement}>Decrement</button>
+			<button onClick={reset}>Reset</button>
+    </div>
+  );
+}
+
+export default CounterTwo;
+
+----------------------------------------------------------------------------------------------------------------------------
+
+                  App.js
+				  
+				  
+				  
+import './App.css';
+import CounterOne from './Counters/CounterOne';
+import CounterTwo from './Counters/CounterTwo';
+
+
+function App() {
+  return (
+  
+    <div className="App">
+     
+    <CounterOne />
+
+    <CounterTwo />
+    
+    </div>
+  );
+}
+
+export default App;
+
+
+					

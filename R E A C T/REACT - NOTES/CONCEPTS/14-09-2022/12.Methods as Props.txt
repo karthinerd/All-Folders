@@ -1,0 +1,82 @@
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 14-09-2022 )
+  
+  // ! Methods as Props
+  
+  ParentComponent.js
+
+import React, { Component } from 'react';
+
+// ? Import CHILD COMPONENT
+
+import ChildComponent from './ChildComponent';
+
+class ParentComponent extends Component {
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         parentName : 'Karthi'
+      }
+      this.greetParent = this.greetParent.bind(this)
+    }
+
+    greetParent(childName) {
+
+        alert(` ${this.state.parentName} is a  ${childName}`)
+    }
+    
+  render() {
+    return (
+      <div>
+        <ChildComponent greetHandler={this.greetParent}/>
+      </div>
+    );
+  }
+}
+
+export default ParentComponent;
+
+
+
+   ChildComponent.js
+   
+
+import React from 'react';
+
+function ChildComponent(props) {
+  return (
+    <div>
+      <button onClick={()=>props.greetHandler('child')}>Greet Parent</button>
+    </div>
+  );
+}
+
+export default ChildComponent;
+
+
+         APP.JS   
+		 
+		 
+
+import './App.css';
+
+import ParentComponent from './components/ParentComponent';
+
+function App() {
+  return (
+    
+  <div className="App">
+    
+   <ParentComponent/>
+
+  </div>
+
+  );
+  
+}
+
+export default App;
+		 

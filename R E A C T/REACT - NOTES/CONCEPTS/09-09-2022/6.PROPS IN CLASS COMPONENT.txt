@@ -1,0 +1,48 @@
+
+    5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 09-09-2022 )
+  
+   PROPS 
+   
+   Clazz.js
+
+import React, { Component } from 'react';
+
+// ! PROPS IN CLASS COMPONENT
+
+class Clazz extends Component {
+    render () {
+        return <div>
+         <h1>Welcome to Class Component {this.props.name} and You're {this.props.age} old </h1>
+         <p>{this.props.children}</p>
+         </div>
+    }
+}
+
+export default Clazz   
+
+
+
+        App.js
+		
+		
+
+import './App.css';
+
+import Clazz from './components/clazz';
+
+function App() {
+  return (
+    <div className="App">
+
+     <Clazz name="karthi" age="20" > <p>I want to Become a MERN Stack Developer</p></Clazz>
+
+     <Clazz name="kumar" age="24" > <button>Click me</button> </Clazz>
+
+    </div>
+  );
+}
+
+export default App;
+		

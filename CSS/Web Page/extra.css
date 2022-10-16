@@ -1,0 +1,305 @@
+.green{
+
+    background-color: rgb(25, 217, 118);
+
+    text-align: center;
+
+    padding: 20px;
+
+    margin-bottom: 10px;
+
+ }
+
+ .violet{
+
+   background-color: blueviolet;
+
+   float: left;
+
+   padding: 90px;
+
+ }
+
+ .orange{
+
+    background-color: orange;
+
+    float: right;
+
+    padding: 90px;
+ }
+
+
+ .sky{
+
+    background-color: cyan;
+
+    text-align: center;
+
+    padding: 90px;
+ }
+
+
+ .brown{
+
+    background-color: rgb(182, 77, 77);
+
+    text-align: center;
+
+    padding: 20px;
+
+ }
+
+ .cen{
+
+    text-align: center;
+
+    padding: 10px;
+
+ }
+
+ div p {
+
+    color: red;
+
+ }
+
+ .sel > p {
+
+    color: green;
+ }
+
+ .sel + p {
+
+    color: blue;
+
+ }
+
+/* For all */
+
+ .sel ~ p {
+
+    color: aqua;
+
+ }
+
+ /* Psuedo elements */
+
+ .psuedo > p::first-letter{
+
+    color: rgb(18, 243, 78);
+
+ }
+
+ .psuedo > p::first-line{
+
+    color: black;
+
+ }
+
+ .psuedo > h1::after{
+
+    content: " ;)";
+
+ }
+
+ .psuedo > h1::before{
+
+    content: "Section:- ";
+
+ }
+
+ ::selection{
+
+    background-color: green;
+
+    color: blue;
+
+ }
+
+  /* oppacity length - 0.1 to 1.0 */
+
+ .oppacity > img { 
+
+    width: 100px;
+    
+    opacity: 0.5;
+
+ }
+
+ .oppacity{
+
+    background-color: rgb(8, 26, 20);
+
+    width: 100px;
+    
+ }
+
+ .oppacity >img:hover{
+
+    width: 100px;
+
+    opacity: 1;
+
+ }
+
+ /*Attribute Selectors*/
+
+ span[title]{
+
+   color: blue;
+
+ }
+
+ span[alt]{
+
+   color: rgb(26, 195, 237);
+
+ }
+
+ span a[target="_blank"] {
+
+   background-color: rgb(237, 21, 21);
+
+   color: aquamarine;
+
+ }
+
+ span[title~=wc]{
+
+   background-color: aqua;
+
+ }
+
+ span[alt~=ind]{
+
+   background-color: darkgreen;
+ }
+
+[class|="con"]{
+   color: aquamarine;    /* Matches */
+}
+
+[class^="con"]{
+   color: beige;   /* Matches Start*/
+}
+
+[class*="c"]{
+
+   color: darkgray;   /* Matches end*/
+}
+
+[class*="-"]{
+
+   color: black;         /* Global Matches*/
+
+}
+
+.form{
+
+padding: 20px 20px;
+
+background-color: azure;
+
+}
+
+.form:hover{
+
+   box-shadow: 2px 2px 10px 10px rgb(208, 13, 130);
+   
+   }
+
+input:hover{
+
+   box-shadow: 2px 2px 10px 10px rgb(16, 185, 223);
+   
+   }
+
+input[type]{
+
+   width: 100%;
+
+   padding: 12px 20px;
+
+   margin: 15px 0;
+
+   border: 1ox solid #ccc;
+
+   border-radius: 4px;
+
+   box-sizing: border-box;
+
+}
+
+button {
+
+   width: 100%;
+
+   background-color: rgb(6, 229, 65);
+
+   color: white;
+
+   padding: 14px 20px;
+
+   margin: 8px 0;
+
+   border: none;
+
+   border-radius: 4px;
+
+   cursor: pointer;
+
+}
+
+button:hover{
+
+   background-color: crimson;
+
+}
+
+body{
+
+   counter-reset: videos;
+
+   background-color: lightblue;
+
+}
+
+.Counters{
+
+   background-color: cadetblue;
+
+   padding: 20px;
+   
+}
+
+h2::before{
+
+   counter-increment: videos +2;
+
+   color: azure;
+
+   content: "videos #  " counter(videos)": ";
+
+}
+
+  /* Media Quries*/
+
+
+@media screen and (max-width:900px) {
+
+   body {
+
+      background-color: fuchsia;
+   }
+}
+
+@media screen and (max-width:600px) {
+
+   body {
+
+      background-color: rgb(18, 228, 88);
+   }
+}
+
+/* specify the !imortant keyword for priority */

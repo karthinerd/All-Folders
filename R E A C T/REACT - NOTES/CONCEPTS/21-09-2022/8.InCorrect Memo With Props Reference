@@ -1,0 +1,78 @@
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 21-09-2022 )
+										   
+										   
+										   
+		// ! Parent Component
+import React,{useState} from 'react';
+import { MemorizedChildFive } from './ChildFive';
+
+
+const ParentFour = () => {
+    const [count , setCount] = useState(0)
+
+    const [Name, setName] = useState('karthi');
+
+    const person ={ 
+        fname : 'Karthigai' ,
+        lname : "Raj"
+    }
+
+    const handleClick = ()=>{
+
+    }
+    console.log('ParentFour Render');
+  return (
+    <div>
+
+      <button onClick={()=> setCount(c=>c +1)}>Count {count} </button>
+      <button onClick={()=> setName('Raj')}>Change Name </button>
+      <MemorizedChildFive Name={Name}   handleClick={handleClick} />
+     
+    </div>
+  );
+}
+
+export default ParentFour;
+
+-----------------------------------------------------------------------------------------------------------------
+
+								   // ? InCorrect Memo With Props Reference
+
+import React from 'react';
+
+const ChildFive = ({Name }) => {
+    console.log("ChildFive Render");
+  return (
+    <div>
+      Hello {Name} 
+    </div>
+  );
+}
+
+export default ChildFive;
+
+export const MemorizedChildFive = React.memo(ChildFive)
+
+---------------------------------------------------------------------------------------------------------------------
+
+
+   App.js
+   
+   
+   
+import './App.css';
+import ParentFour from './Components/Incorrect Optimization/ParentFour';
+
+
+
+function App() {
+  return (
+    <div className="App">
+    <ParentFour />
+          </div>
+  );
+}
+
+export default App;

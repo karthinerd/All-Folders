@@ -1,0 +1,154 @@
+                                     
+									 
+									 
+									 
+									  5 Day Challenge [ REACT JS ]
+  
+                               Today Learning ( 17-09-2022 )
+							   
+							   
+						APP.js
+						
+	
+import './App.css'
+import ClickCounterTwo from './components/ClickCounterTwo';
+import CounterRP from './components/CounterRP';
+import HoverCounterTwo from './components/HoverCounterTwo';
+import User from './components/User';
+
+
+
+function App() {
+  return (
+    
+  <div className='App'>   
+
+  <CounterRP>
+  {( count , incrementCount)=> 
+  <ClickCounterTwo count={count} 
+  incrementCount={incrementCount} />}
+    </CounterRP> 
+
+    <CounterRP>
+  {( count , incrementCount)=> 
+  <HoverCounterTwo count={count} 
+  incrementCount={incrementCount} />}
+    </CounterRP> 
+   
+    <User render={(isLoggedIn)=> isLoggedIn ? "Karthi" : "Guest"} />
+
+
+  
+  
+   
+  </div>
+
+  );
+  
+}
+
+export default App;
+						   
+						   
+						   
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// ! Render Props [ Container ]
+
+import React, { Component } from 'react';
+
+class CounterRP extends Component {
+    constructor(props) {
+        super(props)
+      
+        this.state = {
+           count : 0
+        }
+      }
+  
+      incrementCount = () => {
+          this.setState(prevState =>{
+           return {count:prevState.count + 1}
+          })
+      }
+      
+  render() {
+    return (
+      <div>
+        {this.props.children(this.state.count , this.incrementCount)}
+      </div>
+    );
+  }
+}
+
+export default CounterRP;
+
+--------------------------------------------------------------------------------------------------------------------------------------
+
+
+// ?  Render Props [ Hover ]
+import React, { Component } from 'react';
+
+class HoverCounterTwo extends Component {
+
+  render() {
+    const { count , incrementCount} = this.props
+    return (
+      <div>
+        <h2 onMouseOver={incrementCount}> Hovered {count} times</h2>
+      </div>
+    );
+  }
+}
+
+export default HoverCounterTwo;
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// ! Render Props [ Button Click ]
+
+import React, { Component } from 'react';
+
+ class ClickCounterTwo extends Component {
+  
+  render() {
+    const { count , incrementCount } = this.props
+    return (
+      <div>
+        <button onClick={incrementCount}> Clicked {count} Times</button>
+      </div>
+    );
+  }
+}
+
+export default ClickCounterTwo;
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+              User.js
+
+//  ! Render Props
+
+import React, { Component } from 'react';
+
+ class User extends Component {
+  render() {
+    return (
+      <div>
+       {this.props.render(true)}
+      </div>
+    );
+  }
+}
+
+export default User;
+
+
+
+                                    -------------------------------------

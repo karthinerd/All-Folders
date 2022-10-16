@@ -1,0 +1,55 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 18-09-2022 
+										   
+										   
+										   
+// ! Conditionally Run Effects
+
+import React, { useState, useEffect} from 'react';
+
+function HookCounterSix() {
+  
+    const [count , setCount] = useState(0)
+
+    const [name , setName] = useState('')
+
+    useEffect(() => {
+        console.log('UseEffect - Updating Document title');
+        document.title = ` You Clicked ${count} times`
+    }, [count])
+  return (
+    <div>
+        <input type='text' value={name} onChange={e => setName(e.target.value)} ></input>
+      <button onClick={()=> setCount(count+6)}> click {count} Times </button>
+    </div>
+  );
+}
+
+export default HookCounterSix;
+
+
+---------------------------------------------------------------------------------------------------------------------------------------
+
+
+      App.js
+	  
+	  
+	  
+	
+import './App.css';
+import HookCounterSix from './components/HookCounterSix';
+
+function App() {
+  return (
+    <div className="App">
+      
+       <HookCounterSix/>
+
+    </div>
+  );
+}
+
+export default App;
+  

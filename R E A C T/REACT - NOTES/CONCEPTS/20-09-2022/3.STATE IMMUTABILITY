@@ -1,0 +1,96 @@
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 20-09-2022 )
+										   
+										   
+										   // ! Object
+
+import React, { useState } from 'react'
+
+const initState = {
+  fname: 'Bruce',
+  lname: 'Wayne'
+}
+export const ObjectUseState = () => {
+  const [person, setPerson] = useState(initState)
+  const changeName = () => {
+    // ? Cannot Mutate the object Directly
+   /*  person.fname = 'Clark'
+    person.lname = 'Kent'
+    setPerson(person) */
+
+    const newPerson = {...person}
+    newPerson.fname = 'Clark'
+    setPerson(newPerson) 
+  }
+  console.log('ObjectUseState Render')
+  
+  return (
+    <div>
+      <button onClick={changeName}>{person.fname} {person.lname}</button>
+    </div>
+  )
+}
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+// ! Array
+
+import React,{useState} from 'react';
+
+const initialState  = ['Karthigai','Raj']
+const ArrayUseState = () => {
+    const [Persons, setPerson] = useState(initialState);
+
+   const handleClick = ()=>{
+        Persons.push('Raj')
+        Persons.push('kumar')
+        setPerson(Persons)
+
+        const newPersons = [...Persons]
+       newPersons.push('Raj')
+       newPersons.push('kumar')
+       setPerson(newPersons)
+
+    }
+
+    console.log("ArrayUseState Render");
+
+  return (
+    <div>
+      <button onClick={handleClick}>Click</button> 
+      {
+        Persons.map(person =>{
+            <div key={person}>{person}</div>
+        })
+      }
+    </div>
+  );
+}
+
+export default ArrayUseState;
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+
+                      App.js
+					  
+					  
+					  
+					  
+import './App.css';
+
+import { ObjectUseState } from './Components/Immutable State/ObjectUseState';
+
+import ArrayUseState from './Components/Immutable State/ArrayUseState';
+function App() {
+  return (
+    <div className="App">
+   <ObjectUseState />
+   <ArrayUseState />
+    </div>
+  );
+}
+
+export default App;

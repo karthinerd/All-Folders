@@ -1,0 +1,132 @@
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 16-09-2022 )
+  
+  PureComponent
+  
+  -------------------
+  
+// ! Parent Component
+
+// ?  To Avoid UnNecessary Re-Render
+// import React, { Component , PureComponent} from 'react';
+
+import React, { Component , PureComponent} from 'react';
+
+//? Import Regular Class Component
+import RegularClassComp from './RegularClassComp';
+
+// ! Import Pure Class Component
+import PureComp from './PureComp';
+
+/* // ! To Avoid UnNecessary Re-Render
+  class ParentComp extends PureComponent {    */
+
+    class ParentComp extends Component {
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+
+         name : "karthi"
+
+      }
+    }
+
+    componentDidMount() {
+        setInterval(()=>{
+            this.setState({
+                name : "karthi"
+            })
+        },2000)
+    }
+
+  render() {
+    console.log("Parent Component render");
+
+    return (
+      <div>
+
+        Parent Component
+
+        <RegularClassComp name={this.state.name}/>
+
+        <PureComp name={this.state.name} />
+
+      </div>
+    );
+  }
+}
+
+export default ParentComp;
+
+-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// ! Regular Class Component
+
+import React, { Component } from 'react';
+
+class RegularClassComp extends Component {
+  render() {
+    console.log("Regular Component render");
+    return (
+      <div>
+        Regular Component {this.props.name}
+      </div>
+    );
+  }
+}
+
+export default RegularClassComp;
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// !  Pure Component
+
+import React, { PureComponent } from 'react';
+
+class PureComp extends PureComponent {
+  render() {
+    console.log("Pure Component Render");
+    return (
+      <div>
+        Pure Component {this.props.name}
+      </div>
+    );
+  }
+}
+
+export default PureComp;
+
+-----------------------------------------------------------------------------------------------------------------------------------------
+
+
+   APP.JS
+   
+   
+
+import './App.css'
+
+import ParentComp from './components/ParentComp';
+
+function App() {
+  return (
+    
+  <div className='App'>   
+
+ <ParentComp/>
+       
+  </div>
+
+  );
+  
+}
+
+export default App;
+
+------------------------------------------------------------------------------------------------------------------------------------

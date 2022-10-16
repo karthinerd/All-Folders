@@ -1,0 +1,97 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 19-09-2022 )
+										   
+										   
+										   
+										   
+ //?  Timer in Class
+
+ import React, { Component } from 'react';
+ 
+ class ClassTimer extends Component {
+
+    interval
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         timer : 0
+      }
+    }
+
+    componentDidMount(){
+        this.interval = setInterval(()=>{
+            this.setState(prevState=> 
+           ({timer:prevState.timer + 1}))
+        },1000)
+    }
+    
+    componentWillUnmount() {
+        clearInterval(this.interval)
+    }
+
+   render() {
+     return (
+       <div>
+         Class Timer - {this.state.timer} <br></br>
+         <button onClick={()=>clearInterval(this.interval)}>clearInterval</button>
+       </div>
+     );
+   }
+ }
+ 
+ export default ClassTimer;
+ 
+ 
+ ---------------------------------------------------------------------------------------------------------
+ 
+ //! useRef Hook Timer In Function
+
+import React,{useState , useEffect ,useRef} from 'react';
+
+function HookTimer() {
+    const [ timer , setTimer] = useState(0)
+     const intervalRef = useRef()
+    useEffect(() => {
+         intervalRef.current = setInterval(()=>{
+            setTimer(prevTimer => prevTimer +1)
+        }, 1000)
+      return () => {
+       clearInterval( intervalRef.current)
+      };
+    }, []);
+  return (
+    <div>
+      Hook Timer {timer}<br></br>
+      <button onClick={()=> clearInterval( intervalRef.current)}>Clear Hook Interval</button>
+    </div>
+  );
+}
+
+export default HookTimer;
+
+------------------------------------------------------------------------------------------------------------------------
+                        App.js
+
+     
+import './App.css';
+import ClassTimer from './components/ClassTimer';
+import HookTimer from './components/HookTimer';
+
+
+
+function App() {
+  return (
+  
+    <div className="App">
+     
+     <ClassTimer />
+
+     <HookTimer />
+    </div>
+  );
+}
+
+export default App;

@@ -1,0 +1,99 @@
+
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 16-09-2022 )
+  
+  
+  
+// ! F R A G M E N T . j s
+
+import React from 'react';
+
+function FragmentDemo() {
+  return (
+    <React.Fragment>
+      Fragment Demo
+      <h1>Welcome Karthi</h1>
+    </React.Fragment>
+  );
+}
+
+export default FragmentDemo;
+
+  
+  
+  
+  Table.js
+  
+// !  Table
+import React from 'react';
+
+// ? Import Columns
+import Columns from './Columns';
+function Table() {
+  return (
+    <table>
+      <tbody>
+        <tr>
+          <Columns/>
+        </tr>
+      </tbody>
+    </table>
+  );
+}
+
+export default Table;
+
+
+
+
+// ? Columns.js
+
+import React from 'react';
+
+function Columns() {
+    const items = []
+  return (
+    <React.Fragment>
+        {
+            items.map(item => (
+                <React.Fragment key={item.id}>
+                     <h1>Title</h1>
+                     <p>{item.title}</p>
+                </React.Fragment>
+            ))
+        }
+      <td>Name</td>
+      <td>Latha</td>
+    </React.Fragment>
+  );
+}
+
+export default Columns;
+
+
+       
+	   App.js
+
+import './App.css'
+
+import FragmentDemo from './components/FragmentDemo';
+
+import Table from './components/Table';
+function App() {
+  return (
+    
+  <div className='App'>   
+
+       <FragmentDemo/>
+
+       <Table/>
+
+  </div>
+
+  );
+  
+}
+
+export default App;

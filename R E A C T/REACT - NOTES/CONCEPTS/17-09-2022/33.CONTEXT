@@ -1,0 +1,136 @@
+
+                                               5 Day Challenge [ REACT JS ]
+  
+                                         Today Learning ( 17-09-2022 )
+										 
+										 
+                                             CONTEXT
+											 
+											 
+       APP.JS
+	   
+	   
+	   
+import './App.css'
+
+import ComponentC from './components/ComponentC';
+import { UserProvider } from './components/UserContext';
+
+
+function App() {
+  return (
+    
+  <div className='App'>   
+
+    <UserProvider value='karthi'>
+    <ComponentC />
+    </UserProvider>
+
+  
+  </div>
+
+  );
+  
+}
+
+export default App;
+
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+    CONTEXT FILE
+	
+	
+	
+	// ! Context
+
+import React from 'react';
+ 
+const UserContext = React.createContext()
+
+const UserProvider = UserContext.Provider
+
+const UserConsumer = UserContext.Consumer
+
+
+export { UserProvider , UserConsumer }
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+                     C
+					 
+
+// ! Context In REACT
+
+import React, { Component } from 'react';
+
+// ? Import E
+
+import ComponentE from './ComponentE';
+
+class ComponentC extends Component {
+  render() {
+    return (
+      <div>
+        <ComponentE />
+      </div>
+    );
+  }
+}
+
+export default ComponentC;
+
+--------------------------------------------------------------------------------------------------------------------------------
+
+                                             E
+											 
+											 
+											 
+
+// ?  Context In REACT
+
+import React, { Component } from 'react';
+
+// ! Import F
+import ComponentF from './ComponentF';
+export class ComponentE extends Component {
+  render() {
+    return (
+      <div>
+        <ComponentF />
+      </div>
+    );
+  }
+}
+
+export default ComponentE;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+                                                 F
+												 
+	
+	
+//  ! Context In REACT
+
+import React, { Component } from 'react';
+import { UserConsumer } from './UserContext';
+
+export class ComponentF extends Component {
+  render() {
+    return (
+      <UserConsumer>
+        {
+            (username)=>{
+                return <div> <h1>Hello {username}</h1></div>
+            }
+           
+        }
+      </UserConsumer>
+    );
+  }
+}
+
+export default ComponentF;

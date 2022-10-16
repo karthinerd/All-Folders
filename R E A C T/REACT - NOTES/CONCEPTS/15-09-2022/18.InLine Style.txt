@@ -1,0 +1,55 @@
+
+
+
+           5 Day Challenge [ REACT JS ]
+  
+               Today Learning ( 15-09-2022 )
+			   
+			   
+			   InLine.js
+	
+
+// ! InLine Style
+
+
+import React from 'react';
+
+const heading = {
+    fontSize : '72px' ,
+    color : 'grey'
+}
+
+function Inline() {
+  return (
+    <div>
+      <h1 style={heading}>InLine Style</h1>
+    </div>
+  );
+}
+
+export default Inline;
+		
+		
+		
+		     App.js
+			 
+			 
+
+import './App.css';
+
+import Inline from './components/Inline';
+
+function App() {
+  return (
+    
+  <div className="App">
+    
+ <Inline/>
+
+  </div>
+
+  );
+  
+}
+
+export default App;

@@ -1,0 +1,129 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 18-09-2022 )
+										   
+										   
+										   
+										   HOW TO USE CONTEXT
+										   
+										   
+										   C
+										   
+		//!  UseContext
+
+import ComponentE from './ComponentE';
+import React from 'react';
+
+function ComponentC() {
+  return (
+    <div>
+      <ComponentE/>
+    </div>
+  );
+}
+
+export default ComponentC;
+
+
+------------------------------------------------------------------
+
+                                   E
+
+
+								   //! HOW TO UseContext
+
+import React from 'react';
+
+// ! Import UseContext
+import { useContext } from 'react';
+
+//? Import Necessary Context
+import { UserContext , ChannelContext } from '../App';
+
+import ComponentF from './ComponentF';
+
+function ComponentE() {
+
+   const user = useContext(UserContext)
+  const Channel =   useContext(ChannelContext)
+  return (
+    <div>
+      <ComponentF/>
+      {user} - {Channel}
+    </div>
+  );
+}
+
+export default ComponentE;
+
+-------------------------------------------------------------------------------------------------------------------------
+
+  F
+  
+  
+  //!  UseContext
+
+import React from 'react';
+
+import {UserContext , ChannelContext} from '../App';
+
+function ComponentF() {
+  return (
+
+    <div>
+      <UserContext.Consumer>
+        {
+            user => {
+                return(
+                    <ChannelContext.Consumer>
+                        {
+                            channel => {
+                                return <div> User Context Value {user} - Channel Context Value {channel} </div>
+                            }
+                        }
+                    </ChannelContext.Consumer>
+                ) 
+            }
+        }
+      </UserContext.Consumer>
+    </div>
+  );
+}
+
+export default ComponentF;
+
+----------------------------------------------------------------------------------------------------------------------------
+
+
+                  app.js
+				  
+				  
+				  
+import React from 'react';
+import './App.css';
+import ComponentC from './components/ComponentC';
+
+export const UserContext = React.createContext()
+
+export const ChannelContext = React.createContext()
+function App() {
+  return (
+    <div className="App">
+      
+      <UserContext.Provider value={'karthi'}>
+
+      <ChannelContext.Provider value={'MERN Developer'}>
+
+      <ComponentC />
+
+      </ChannelContext.Provider>
+
+      </UserContext.Provider>
+ 
+    
+    </div>
+  );
+}
+
+export default App;

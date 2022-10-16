@@ -1,0 +1,72 @@
+
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 18-09-2022 )
+										   
+										   UseMemo Hook
+				
+				
+										   
+	import React, { useState, useMemo } from 'react'
+
+function Counter() {
+	const [counterOne, setCounterOne] = useState(0)
+	const [counterTwo, setCounterTwo] = useState(0)
+
+	const incrementOne = () => {
+		setCounterOne(counterOne + 1)
+	}
+
+	const incrementTwo = () => {
+		setCounterTwo(counterTwo + 1)
+  }
+
+  const isEven = useMemo(() => {
+    let i = 0
+    while (i < 200000) i++
+    return counterOne % 2 === 0
+  }, [counterOne])
+
+   /* const isEven = ()=> {
+	return counterOne % 2 === 0
+   } */
+
+	return (
+		<div>
+			<div>
+        <button onClick={incrementOne}>Count One - {counterOne}</button>
+        <span>{isEven ? 'Even' : 'Odd'}</span>
+			</div>
+			<div>
+        <button onClick={incrementTwo}>Count Two - {counterTwo}</button>
+			</div>
+		</div>
+	)
+}
+
+export default Counter			
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+          App.js
+
+
+
+import './App.css';
+import Counter from './components/Counter';
+
+function App() {
+  return (
+  
+    <div className="App">
+     
+     <Counter />
+     
+    </div>
+  );
+}
+
+export default App;
+
+		  

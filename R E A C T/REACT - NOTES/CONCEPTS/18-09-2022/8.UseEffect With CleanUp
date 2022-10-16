@@ -1,0 +1,93 @@
+
+                                           
+                                            5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 18-09-2022 )
+										   
+										   
+										   
+	
+// ? UseEffect With CleanUp
+
+import React, { useState, useEffect } from 'react';
+
+function HooksMouse() {
+    const [ x ,setX] = useState(0)
+    const[ y , setY ] = useState(0)
+
+    const logMousePosition = (event)=> {
+            console.log('Mouse Event');
+            setX(event.clientX)
+            setY(event.clientY)
+    }
+
+    useEffect(()=>{
+        console.log('UseEffect Called');
+        window.addEventListener('mousemove' , logMousePosition)
+            
+        // ?Cleanup
+        
+        return ()=>{
+           console.log('Component UnMounted');
+           window.removeEventListener('mousemove' , logMousePosition)
+        }
+    },[])
+  return (
+    <div>
+      Hook X - {x} Y - {y}
+    </div>
+  );
+}
+
+export default HooksMouse;
+
+
+------------------------------------------------------------------------------------------------------------------------------------
+
+									   
+									   // ! USE-EFFECT WITH CLEANUP
+
+import React, { useState, useEffect } from 'react';
+
+// ? Import Hooks Mouse
+import HooksMouse from './HooksMouse';
+
+function MouseContainer() {
+
+    const [ display , setDisplay] =useState(true)
+  return (
+    <div>
+      <button onClick={()=> setDisplay(!display)}>Toggle Display</button>
+      {
+        display && <HooksMouse/>
+      }
+    </div>
+  );
+}
+
+export default MouseContainer;
+
+
+-----------------------------------------------------------------------------------------------------------------------------------
+
+
+                        app.js
+						
+						
+	
+import './App.css';
+import MouseContainer from './components/MouseContainer';
+
+
+function App() {
+  return (
+    <div className="App">
+      
+    <MouseContainer />
+
+    </div>
+  );
+}
+
+export default App;
+					

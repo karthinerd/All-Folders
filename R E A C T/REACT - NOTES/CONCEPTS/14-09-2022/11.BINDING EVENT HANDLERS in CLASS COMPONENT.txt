@@ -1,0 +1,91 @@
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 14-09-2022 )
+  
+
+// !  BINDING EVENT HANDLERS in CLASS COMPONENT
+
+import React, { Component } from 'react';
+
+ class EventBind extends Component {
+
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         message : "Hello"
+      }
+
+    // ?  Binding in Constructor 
+
+    //   this.clickChanger = this.clickChanger.bind(this)
+
+    } 
+    
+ /*    // ?  Bind & Arrow
+
+    clickChanger() {
+        this.setState ({
+            message : "Good Bye"
+        }) 
+        console.log(this);
+    } */
+	
+	// CLASS PROPERTY AS ARROW Function 
+
+    clickChanger = () => {
+        this.setState({
+            message : "Good Bye "
+        })
+    }
+    
+  render() {
+    return (
+      <div>
+        <h2>{this.state.message}</h2>
+
+        {/* Bind Method */}
+        {/* <button onClick={this.clickChanger.bind(this)}> Click</button> */}
+
+        {/* Arrow Function */}
+        {/* <button onClick={()=>{this.clickChanger()}}> Click</button>  */}
+
+          {/* Binding in Constructor */}
+        {/* <button onClick={this.clickChanger}> Click</button> */}
+
+        
+        {/* CLASS PROPERTY AS ARROW Function */}
+        <button onClick={this.clickChanger}> Click</button>
+
+      </div>
+    );
+  }
+}
+
+export default EventBind;
+
+
+          APP.JS
+		  
+		  
+
+import './App.css';
+
+import EventBind from './components/EventBind';
+
+function App() {
+  return (
+    
+  <div className="App">
+    
+   <EventBind/>
+
+  </div>
+
+  );
+  
+}
+
+export default App;
+		  

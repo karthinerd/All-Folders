@@ -1,0 +1,392 @@
+
+h1 {
+
+    color : darkviolet;
+
+    text-align: center;
+
+}
+
+h2{
+
+    color: rgb(190, 224, 20);
+
+}
+
+h3{
+
+    color: blueviolet;
+
+}
+
+/* Border */
+
+.border{
+
+    border-color: aqua ;
+
+    border-style:ridge;
+
+    border-left: solid black;
+
+    border-right: double blue;
+
+    border-bottom: dotted brown;
+
+    border-top: solid coral;
+
+    border-width: 5px;
+
+    border-radius: 15px;
+
+}
+
+/* Margin */
+
+.Margin{
+                        
+margin-top: 10px;            
+
+margin-bottom: 10px;
+
+margin-left: 15px;
+
+margin-right: 15px;
+
+}
+
+/* Padding */
+
+.padding {
+
+padding-top: 16px;
+
+padding-bottom: 16px;
+
+padding-left: 8px;
+
+padding-right: 8px;
+
+}
+
+.hw{
+
+    background-color: aquamarine;
+
+    border: 5px solid black;
+
+    /* Outline */
+
+    outline: 10px solid rgb(151, 81, 222);
+
+    outline-style: dotted;
+    
+}
+
+.TextFormat{
+
+    color: rgb(56, 135, 204);
+
+    text-shadow: 5px 5px rgb(149, 232, 232);
+
+    text-align: justify;
+
+    /*text-decoration: overline; Underline */
+
+    text-transform: capitalize;
+
+    text-indent: 50px ; /* paragraph Starting Space */
+
+    letter-spacing: 7px;
+
+    /*line-height: px;*/
+
+    direction: ltr;
+
+    word-spacing: 5px;
+
+}
+
+.fb {
+
+    padding: 10px;
+
+    color: #fff;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: #4267B2;
+
+}
+
+.ins{
+
+    padding: 10px;
+
+    color: #fff;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: hotpink;
+
+}
+
+.g{
+
+    padding: 10px;
+
+    color: #fff;
+
+    border: none;
+
+    border-radius: 8px;
+
+    background-color: red;
+
+}
+
+ol {
+
+    background: greenyellow;
+
+    padding: 20px;
+
+    list-style-type:square;
+
+    list-style-position: inside;
+
+    list-style-image: url(list.png);
+
+}
+
+ol li {
+
+    background: darkgray;
+
+    padding: 5px;
+
+    margin-left: 35px;
+
+}
+
+table{
+
+    width: 100%;
+
+    border-collapse: collapse;   /* Single Line Border */
+
+    text-align: center;
+
+}
+
+table{
+
+border: 1px solid #4267B2;
+
+}
+
+th{
+
+    padding: 15px;
+
+    background-color: aquamarine;
+
+    font-size: 20px;
+
+}
+
+td{
+
+padding: 15px;
+
+}
+
+tr:hover{
+
+   background-color: gainsboro;
+
+}
+
+tr:nth-child(odd){
+
+background-color: #4267B2;
+
+}
+
+.t{
+    overflow-X:auto;
+}
+
+ul li a {
+
+    color: lightcoral;
+
+}
+
+li{
+
+    display: inline;
+
+    margin-right: 50px;
+
+}
+
+.IT{
+
+    display: none;
+
+     /* same work */
+
+    visibility: hidden ;
+
+}
+
+  /* CSS Position*/
+
+.static{
+
+    position: static;
+
+    border: 5px solid black;
+
+}
+
+.relative{
+
+    position: relative;
+
+    left: 30px;
+
+    border: 5px solid blue;
+
+}
+
+/*.fixed{
+
+    position: fixed;
+
+    border: 5px solid rgb(20, 217, 142);
+
+    bottom: 0px;
+
+    left: 0px;
+
+    width: 100%;
+
+    text-align: center;
+
+    background: aqua;
+
+    padding: 10px;
+
+}*/
+
+.relatives{
+
+    position: relative;
+
+    border: 5px solid rgb(208, 22, 214);
+
+    left: 40%;
+
+    width: 400px;
+
+    height: 400px;
+
+}
+
+.absolute{
+
+    position: absolute;
+
+    border: 5px solid skyblue;
+
+    top: 80px;
+
+    left: 20%;
+
+}
+
+.sticky{
+
+    position: sticky;
+
+    border: 5px solid rgb(217, 66, 117);
+
+    padding: 20px;
+
+    background: yellow;
+
+    bottom: 0;
+
+}
+
+ /* CSS Float*/
+
+ .float{
+
+    padding: 30px;
+
+    background-color: burlywood;
+
+    color: #fff;
+
+ }
+
+ .float > img {
+
+float: right;
+
+background-color: rgb(23, 220, 102);
+
+padding: 40px;
+
+margin-left: 20px;
+
+ }
+
+ .Games > div{
+
+    padding: 20px 0;
+
+    text-align: center;
+
+    width: 100px;
+
+ }
+
+ .pubg{
+
+    float: left;
+
+    background-color: darkkhaki;
+
+ }
+
+ .pes{
+
+    background-color: rgb(217, 66, 117);
+
+    float: left;
+
+ }
+
+ .cricket{
+
+    background-color: darkslateblue;
+
+    float: right;
+
+ }
+
+ .my{
+
+    clear: both;
+
+ }
+
+ 

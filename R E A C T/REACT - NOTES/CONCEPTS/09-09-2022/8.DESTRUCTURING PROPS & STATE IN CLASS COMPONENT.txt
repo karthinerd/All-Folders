@@ -1,0 +1,55 @@
+
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 09-09-2022 )
+
+
+
+import React, { Component } from 'react';
+
+// ! DESTRUCTURING PROPS & STATE IN CLASS COMPONENT
+
+class Clazz extends Component {
+    render () {
+	
+        const{name,age}= this.props
+
+        
+        return <div>
+
+         <h1>Welcome to Class Component {name} and You're {age} old </h1>
+        
+         </div>
+    }
+}
+
+export default Clazz
+
+
+
+      App.js
+	  
+	  
+
+import './App.css';
+
+import Clazz from './components/clazz';
+
+function App() {
+  return (
+  
+  <div className="App">
+
+
+     <Clazz name="karthi" age="20" > <p>I want to Become a MERN Stack Developer</p></Clazz>
+
+     <Clazz name="kumar" age="24" > <button>Click me</button> </Clazz>
+
+
+  </div>
+  );
+}
+
+export default App;
+	  

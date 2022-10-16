@@ -1,0 +1,25 @@
+<h1> {{viewTitle}} </h1>
+
+<div class="form">
+
+    <form action="/login" method="post" autocomplete="off">
+
+    <input type="hidden" name="_id" value="{{validation._id}}">
+
+        <label>E-Mail</label>
+
+        <input type="email" name="email" value="{{validation.email}}" required > <br><br>
+
+
+        <label>Password</label>
+
+        <input type="password" name="password" value="{{validation.password}}" required> <br><br>
+
+
+        <button> Login </button>  <br> <br>
+
+    </form>
+
+     <a href="/login/details"> <button>View All</button> </a>
+
+</div>

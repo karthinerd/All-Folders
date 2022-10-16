@@ -1,0 +1,42 @@
+
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 09-09-2022 )
+  
+  CLASS COMPONENT
+
+    
+	  App.js
+
+import './App.css';
+
+import Clazz from './components/clazz';
+
+function App() {
+  return (
+    <div className="App">
+
+   <Clazz/>
+    
+    </div>
+  );
+}
+
+export default App;
+
+
+   clazz.js
+   
+   
+import React, { Component } from 'react';
+
+// ! CLASS COMPONENT
+
+class Clazz extends Component {
+    render () {
+        return <h1>Welcome to Class Component</h1>
+    }
+}
+
+export default Clazz

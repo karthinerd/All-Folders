@@ -1,0 +1,40 @@
+
+
+<h1 style="text-align: center;"> {{viewTitle}} </h1>
+
+
+<div class="form">
+
+<form action="/student" method="post" autocomplete="off">
+
+     <input type="hidden" name="_id" value="{{studentsData._id}}">
+
+    <h2> Fill The Details </h2>
+
+    <label> Name </label>
+
+    <input type="text" name="Name" placeholder="Enter Your Name" value="{{studentsData.Name}}" required> <br> <br>
+ 
+          {{studentsData.NameError}} 
+
+    <label> Date Of Birth </label>
+
+    <input type="date" name="Dob" placeholder="Date Of Birth" value="{{studentsData.Dob}}" required> <br> <br>
+
+     <label> E-Mail </label>
+
+    <input type="email" name="emailid" placeholder="E-Mail" value="{{studentsData.emailid}}" required> <br> <br>
+
+           {{studentsData.emailidError}}
+           
+    <label for="name"> Mobile </label>
+
+    <input type="number" name="Mobile" placeholder="Phone Number" value="{{studentsData.Mobile}}" required> <br> <br>
+
+    <button> Submit </button>
+
+</form>
+
+<a href="/student/list"> <button class="new"> View All </button> </a>
+
+</div>

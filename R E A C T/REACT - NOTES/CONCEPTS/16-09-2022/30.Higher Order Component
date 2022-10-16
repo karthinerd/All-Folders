@@ -1,0 +1,103 @@
+
+
+                  5 Day Challenge [ REACT JS ]
+  
+                     Today Learning ( 16-09-2022 )
+					 
+					 
+// Higher Order 
+
+import React, { Component } from 'react';
+
+ class ClickCounter extends Component {
+    constructor(props) {
+      super(props)
+    
+      this.state = {
+         count : 0
+      }
+    }
+
+    incrementCount = () => {
+        this.setState(prevState => {
+            return { count : prevState.count + 1}
+        })
+    }
+    
+  render() {
+    const {count } = this.state
+    return (
+      <div>
+        <button onClick={this.incrementCount}>Clicked {count} Times</button>
+      </div>
+    );
+  }
+}
+
+export default ClickCounter;
+
+
+----------------------------------------------------------------------------------------------------------------------------------
+
+
+
+// ? Hover Counter
+
+import React, { Component } from 'react';
+
+ class HoverCounter extends Component {
+      
+    constructor(props) {
+        super(props)
+      
+        this.state = {
+           count : 0
+        }
+      }
+  
+      incrementCount = () => {
+          this.setState(prevState => {
+              return { count : prevState.count + 1}
+          })
+      }
+  render() {
+    const {count } = this.state
+    return (
+      <div>
+        <h2 onMouseOver={this.incrementCount}>Hovered {count} times</h2>
+      </div>
+    );
+  }
+}
+
+export default HoverCounter;
+
+------------------------------------------------------------------------------------------------------------------------------
+
+
+                         App.js
+						 
+						 
+						 
+						 
+	
+import './App.css'
+
+import ClickCounter from './components/ClickCounter';
+import HoverCounter from './components/HoverCounter';
+function App() {
+  return (
+    
+  <div className='App'>   
+
+  <ClickCounter/>
+
+  <HoverCounter/>
+       
+  </div>
+
+  );
+  
+}
+
+export default App;

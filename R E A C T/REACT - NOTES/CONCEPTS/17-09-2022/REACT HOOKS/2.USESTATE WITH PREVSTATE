@@ -1,0 +1,65 @@
+
+                                           5 Day Challenge [ REACT JS ]
+  
+                                           Today Learning ( 17-09-2022 )
+										   
+										   
+										   
+	// ? UseState with PrevState
+
+import React, { useState } from 'react';
+
+
+function HookCounterTwo() {
+
+    const initialCount = 0
+
+    const [ count , setCount ] = useState(initialCount)
+
+    const incrementFive = ()=> {
+        for (let i = 0; i < 5; i++) {
+            
+            setCount(prevCount => prevCount + 1)
+        }
+    }
+  return (
+    <div>
+
+        Count : {count} <br></br>
+
+        <button onClick={()=> setCount(initialCount)}>Reset</button><br></br>
+
+        <button onClick={()=> setCount(prevCount => prevCount + 1)}>Increment</button><br></br>
+
+        <button onClick={()=> setCount(prevCount => prevCount - 1)}>Decrement</button><br></br>
+
+        <button onClick={incrementFive}>Increment 5 Times</button><br></br>
+
+    </div>
+  );
+}
+
+export default HookCounterTwo;
+
+---------------------------------------------------------------------------------------------------------------------------------
+
+
+                    App.js
+
+
+
+import './App.css';
+
+import HookCounterTwo from './components/HookCounterTwo';
+
+function App() {
+  return (
+    <div className="App">
+      
+      <HookCounterTwo/>
+    </div>
+  );
+}
+
+export default App;
+					

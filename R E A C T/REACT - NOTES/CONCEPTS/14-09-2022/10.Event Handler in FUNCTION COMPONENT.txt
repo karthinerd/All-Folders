@@ -1,0 +1,50 @@
+
+
+5 Day Challenge [ REACT JS ]
+  
+  Today Learning ( 14-09-2022 )
+
+
+
+Funclick.js
+
+import React from 'react';
+
+// ? Event Handler in FUNCTION COMPONENT
+
+function Funclick() {
+
+    function clickHandler(){
+        console.log("Button Clicked");
+    }
+  return (
+    <div>
+      <button onClick={clickHandler}>Click Here</button>
+    </div>
+  );
+}
+
+export default Funclick;
+
+
+APP,JS
+
+
+import './App.css';
+
+import Funclick from './components/Funclick';
+
+function App() {
+  return (
+    
+  <div className="App">
+    
+<Funclick/>
+  
+  </div>
+
+  );
+  
+}
+
+export default App;
